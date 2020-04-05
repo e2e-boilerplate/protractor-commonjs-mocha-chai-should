@@ -9,11 +9,9 @@ describe("Sandbox", () => {
 
   it("should be on Sandbox", async () => {
     const pageTitle = await browser.getTitle();
-    const header = element(by.css("h1"));
-
     pageTitle.should.eql("Sandbox");
-    header.getText().then((title) => {
-      title.should.eql("Sandbox");
-    });
+
+    const header = await element(by.css("h1")).getText();
+    header.should.eql("Sandbox");
   });
 });
