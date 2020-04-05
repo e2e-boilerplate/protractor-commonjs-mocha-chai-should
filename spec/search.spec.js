@@ -1,4 +1,5 @@
-const { expect } = require("chai");
+// eslint-disable-next-line no-unused-vars
+const should = require("chai").should();
 
 describe("Sandbox", () => {
   before(function fn() {
@@ -7,12 +8,12 @@ describe("Sandbox", () => {
   });
 
   it("should be on Sandbox", async () => {
-    const title = await browser.getTitle();
+    const pageTitle = await browser.getTitle();
     const header = element(by.css("h1"));
 
-    expect(title).to.equal("Sandbox");
-    header.getText().then((h) => {
-      expect(h).to.equal("Sandbox");
+    pageTitle.should.eql("Sandbox");
+    header.getText().then((title) => {
+      title.should.eql("Sandbox");
     });
   });
 });
